@@ -2,7 +2,22 @@
   abm works!
 </p>
 <a href="http://localhost/api/persona/1">localhost</a>
-<br><br>
+<br>
+<br>
 <div *ngFor="let aux of datos | async">
-nombre: {{aux.nombre}} - mail: {{aux.mail}} - sexo: {{aux.sexo}}
+  <div *ngIf="aux.sexo=='F'" class="mujer">
+    nombre: {{aux.nombre}} - mail: {{aux.mail}} - sexo: {{aux.sexo}}
+  </div>
+  <div *ngIf="aux.sexo=='M'" class="hombre">
+    nombre: {{aux.nombre}} - mail: {{aux.mail}} - sexo: {{aux.sexo}}
+  </div>
 </div>
+
+<div>
+  <input type="text" placeholder="nombre" [(ngModel)]="nombre">
+  <input type="text" placeholder="mail" [(ngModel)]="mail">
+  <input type="text" placeholder="sexo" [(ngModel)]="sexo">
+  <input type="text" placeholder="password" [(ngModel)]="password">
+</div>
+
+<button (click)="agregar()">agregar</button>

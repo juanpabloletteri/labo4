@@ -8,10 +8,21 @@ export class PersonasService {
 
   constructor(public http: Http) { }
 
+  agregarUnaPersona(nombre,mail,sexo,password) {
+    let url = 'http://localhost/api/agregarmaterial';
+    let persona = { nombre: nombre, mail: mail, sexo: sexo, password: password };
+    //let persona = { nombre: "nomdebre", mail: "maidel", sexo: "M", password: "password" };
+
+    return this.http
+      .post(url, persona)
+      .toPromise()
+      .then()
+      .catch(this.error);
+  }
+
   traerTodasLasPersonas() {
-    let url = 'http://www.estacionamiento.16mb.com/apilab4/persona/';
-    //let url = 'https://restcountries.eu/rest/v2/all';
-    
+    let url = 'http://localhost/api/persona/';
+
     return this.http
       .get(url)
       .toPromise()
