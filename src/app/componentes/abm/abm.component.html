@@ -6,10 +6,10 @@
 <br>
 <div *ngFor="let aux of datos | async">
   <div *ngIf="aux.sexo=='F'" class="mujer">
-    nombre: {{aux.nombre}} - mail: {{aux.mail}} - sexo: {{aux.sexo}}
+    nombre: {{aux.nombre}} - mail: {{aux.mail}} - sexo: {{aux.sexo}}  <img src="{{aux.ruta}}" alt="">
   </div>
   <div *ngIf="aux.sexo=='M'" class="hombre">
-    nombre: {{aux.nombre}} - mail: {{aux.mail}} - sexo: {{aux.sexo}}
+    nombre: {{aux.nombre}} - mail: {{aux.mail}} - sexo: {{aux.sexo}}  <img src="{{aux.ruta}}" alt="">
   </div>
 </div>
 
