@@ -13,11 +13,13 @@ import { PersonasService } from '../../servicios/personas.service';
 export class AbmComponent implements OnInit {
 
   datos: any;
+  visible: boolean = true;
 
   nombre: string;
   mail: string;
   sexo: string;
   password: string;
+  ruta: string;
 
   constructor(public datoPersonas: PersonasService) {
     this.datos = datoPersonas.traerTodasLasPersonas();
@@ -25,8 +27,8 @@ export class AbmComponent implements OnInit {
   }
   agregar() {
     //this.datoPersonas.agregarUnaPersona();
-    console.log( this.datoPersonas.agregarUnaPersona(this.nombre, this.mail, this.sexo, this.password));
-    
+    console.log(this.datoPersonas.agregarUnaPersona(this.nombre, this.mail, this.sexo, this.password));
+
   }
   ngOnInit() {
   }

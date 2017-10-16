@@ -1,23 +1,63 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <p>
   abm works!
 </p>
-<a href="http://localhost/api/persona/1">localhost</a>
-<br>
-<br>
-<div *ngFor="let aux of datos | async">
-  <div *ngIf="aux.sexo=='F'" class="mujer">
-    nombre: {{aux.nombre}} - mail: {{aux.mail}} - sexo: {{aux.sexo}}  <img src="{{aux.ruta}}" alt="">
-  </div>
-  <div *ngIf="aux.sexo=='M'" class="hombre">
-    nombre: {{aux.nombre}} - mail: {{aux.mail}} - sexo: {{aux.sexo}}  <img src="{{aux.ruta}}" alt="">
-  </div>
-</div>
 
-<div>
+<div *ngIf="visible">
   <input type="text" placeholder="nombre" [(ngModel)]="nombre">
   <input type="text" placeholder="mail" [(ngModel)]="mail">
   <input type="text" placeholder="sexo" [(ngModel)]="sexo">
   <input type="text" placeholder="password" [(ngModel)]="password">
+
+  <button (click)="agregar()">agregar</button>
 </div>
 
-<button (click)="agregar()">agregar</button>
+
+
+<div class="container">
+  <h2>ABM USUARIOS</h2>
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Nombre</th>
+          <th>Mail</th>
+          <th>Sexo</th>
+          <th>Foto</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let aux of datos | async">
+
+        <tr *ngIf="aux.sexo=='F'" class="mujer">
+          <td>{{aux.nombre}}</td>
+          <td> {{aux.mail}}</td>
+          <td> {{aux.sexo}}</td>
+          <td>
+            <img src="{{aux.ruta}}" alt="">
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="aux.sexo=='M'" class="hombre">
+          <td>{{aux.nombre}}</td>
+          <td> {{aux.mail}}</td>
+          <td> {{aux.sexo}}</td>
+          <td>
+            <img src="{{aux.ruta}}" alt="">
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
