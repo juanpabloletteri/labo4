@@ -3,23 +3,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<p>
-  abm works!
-</p>
-
-<div *ngIf="visible">
-  <input type="text" placeholder="nombre" [(ngModel)]="nombre">
-  <input type="text" placeholder="mail" [(ngModel)]="mail">
-  <input type="text" placeholder="sexo" [(ngModel)]="sexo">
-  <input type="text" placeholder="password" [(ngModel)]="password">
-
-  <button (click)="agregar()">agregar</button>
+<div align="right">
+  <input type="checkbox" [(ngModel)]="visible" class="check">
+  <label class="ingresar" for="">INGRESAR</label>
 </div>
 
+<div *ngIf="visible" class="ingreso" align=center>
+  <h2 class="titulo">INGRESO</h2>
+  <input type="text" placeholder="Nombre" [(ngModel)]="nombre">
+  <input type="text" placeholder="Mail" [(ngModel)]="mail">
+  <input type="text" placeholder="Sexo" [(ngModel)]="sexo">
+  <input type="text" placeholder="Password" [(ngModel)]="password">
 
+  <button (click)="agregar()" class="btn btn-success">Agregar</button>
+</div>
 
 <div class="container">
-  <h2>ABM USUARIOS</h2>
+  <h2 class="titulo">ABM USUARIOS</h2>
+  <br>
+
   <div class="table-responsive">
     <table class="table">
       <thead class="thead-inverse">
@@ -38,7 +40,7 @@
           <td> {{aux.mail}}</td>
           <td> {{aux.sexo}}</td>
           <td>
-            <img src="{{aux.ruta}}" alt="">
+            <img src="{{aux.ruta}}" alt="" height="64" width="64">
           </td>
           <td>
             <button type="button" class="btn btn-danger">Eliminar</button>
@@ -50,7 +52,7 @@
           <td> {{aux.mail}}</td>
           <td> {{aux.sexo}}</td>
           <td>
-            <img src="{{aux.ruta}}" alt="">
+            <img src="{{aux.ruta}}" alt="" height="64" width="64">
           </td>
           <td>
             <button type="button" class="btn btn-danger">Eliminar</button>
@@ -61,3 +63,4 @@
     </table>
   </div>
 </div>
+
