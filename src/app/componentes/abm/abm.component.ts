@@ -30,6 +30,9 @@ export class AbmComponent implements OnInit {
     console.log(this.datoPersonas.agregarUnaPersona(this.nombre, this.mail, this.sexo, this.password));
 
   }
+  eliminar() {
+    console.log(this.datoPersonas.eliminarUnaPersona('id'));
+  }
   ngOnInit() {
   }
 
