@@ -13,7 +13,7 @@ import { PersonasService } from '../../servicios/personas.service';
 export class AbmComponent implements OnInit {
 
   datos: any;
-  visible: boolean = true;
+  visible: boolean = false;
 
   nombre: string;
   mail: string;
@@ -30,8 +30,8 @@ export class AbmComponent implements OnInit {
     console.log(this.datoPersonas.agregarUnaPersona(this.nombre, this.mail, this.sexo, this.password));
 
   }
-  eliminar() {
-    console.log(this.datoPersonas.eliminarUnaPersona('id'));
+  eliminar(id) {
+    console.log(this.datoPersonas.eliminarUnaPersona(id));
   }
   ngOnInit() {
   }
