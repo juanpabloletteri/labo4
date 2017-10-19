@@ -9,7 +9,7 @@ export class PersonasService {
   constructor(public http: Http) { }
 
   agregarUnaPersona(nombre, mail, sexo, password) {
-    let url = 'http://localhost/api/agregarmaterial';
+    let url = 'http://localhost/api/agregarpersona';
     let persona = { nombre: nombre, mail: mail, sexo: sexo, password: password };
     //let persona = { nombre: "nomdebre", mail: "maidel", sexo: "M", password: "password" };
 
@@ -30,7 +30,7 @@ export class PersonasService {
       .catch(this.error);
   }
   eliminarUnaPersona(id) {
-    let url = 'http://localhost/api/eliminarmaterial';
+    let url = 'http://localhost/api/eliminarpersona';
     let clave = { id: id };
     return this.http
       .post(url, clave)

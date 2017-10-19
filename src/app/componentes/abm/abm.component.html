@@ -12,7 +12,10 @@
   <h2 class="titulo">INGRESO</h2>
   <input type="text" placeholder="Nombre" [(ngModel)]="nombre">
   <input type="text" placeholder="Mail" [(ngModel)]="mail">
-  <input type="text" placeholder="Sexo" [(ngModel)]="sexo">
+  <select [(ngModel)]="sexo" placeholder="sexo">
+    <option value="M" >Hombre</option>
+    <option value="F">Mujer</option>
+  </select>
   <input type="text" placeholder="Password" [(ngModel)]="password">
 
   <button (click)="agregar()" class="btn btn-success">Agregar</button>
