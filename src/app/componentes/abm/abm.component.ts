@@ -18,7 +18,9 @@ export class AbmComponent implements OnInit {
   nombre: string;
   mail: string;
   sexo: string;
-  password: string;
+  //password: string;
+  password1: string;
+  password2: string;
   ruta: string;
 
   constructor(public datoPersonas: PersonasService) {
@@ -26,14 +28,22 @@ export class AbmComponent implements OnInit {
 
   }
   agregar() {
-    //this.datoPersonas.agregarUnaPersona();
-    console.log(this.datoPersonas.agregarUnaPersona(this.nombre, this.mail, this.sexo, this.password));
+    if (this.password1 == this.password2 && this.password1 != "") {
+      //this.datoPersonas.agregarUnaPersona();
+      console.log(this.datoPersonas.agregarUnaPersona(this.nombre, this.mail, this.sexo, this.password1));
 
-    alert("El usuario: " + this.nombre + " fue agregado exitosamente");
-    this.nombre = "";
-    this.mail = "";
-    this.password = "";
-    this.visible = false;
+      alert("El usuario: " + this.nombre + " fue agregado exitosamente");
+      this.nombre = "";
+      this.mail = "";
+      this.password1 = "";
+      this.password2 = "";
+      this.visible = false;
+    }
+    else {
+      alert("Contraseñas no identicas, por favor reingrese");
+      this.password1 = "";
+      this.password2 = "";
+    }
   }
   onChange(event) {
     var files = event.srcElement.files;
