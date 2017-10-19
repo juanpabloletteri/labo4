@@ -29,6 +29,15 @@ export class AbmComponent implements OnInit {
     //this.datoPersonas.agregarUnaPersona();
     console.log(this.datoPersonas.agregarUnaPersona(this.nombre, this.mail, this.sexo, this.password));
 
+    alert("El usuario: " + this.nombre + " fue agregado exitosamente");
+    this.nombre = "";
+    this.mail = "";
+    this.password = "";
+    this.visible = false;
+  }
+  onChange(event) {
+    var files = event.srcElement.files;
+    console.log(files);
   }
   eliminar(id) {
     console.log(this.datoPersonas.eliminarUnaPersona(id));
